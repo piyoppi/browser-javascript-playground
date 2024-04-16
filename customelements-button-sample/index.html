@@ -10,7 +10,7 @@
     <script type="module" src="./main.js"></script>
 
     <article>
-      <section>
+      <section id="light-dom">
         <h2>Shadow DOMを利用しない場合</h2>
         <p>Enterキーを押下すると送信される</p>
         <form id="text-with-light-button-form" action="/post" method="post">
@@ -30,7 +30,7 @@
         </script>
       </section>
 
-      <section>
+      <section id="shadow-dom">
         <h2>Shadow DOMを利用する場合</h2>
         <p>Enterキーを押下しても送信されない</p>
         <form id="text-with-button-form" action="/post" method="post">
@@ -50,7 +50,7 @@
         </script>
       </section>
 
-      <section>
+      <section id="shadow-dom-with-a-text">
         <h2>Shadow DOMを利用する場合 + テキストボックスが1つ</h2>
         <p>Enterキーを押下すると送信される</p>
         <form id="a-text-with-button-form" action="/post" method="post">
@@ -69,7 +69,7 @@
         </script>
       </section>
 
-      <section>
+      <section id="shadow-dom-with-enter-key-handling">
         <h2>Shadow DOMを利用する場合 + Enterキーのハンドリング</h2>
         <p>Enterキーを押下すると送信されるが、テキストボックスが一つの場合は2回Submitイベントが発火する</p>
         <form id="text-with-enter-handled-button-form" action="/post" method="post">
