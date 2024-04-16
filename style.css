@@ -1,0 +1,16 @@
+body {
+  background: gainsboro;
+}
+
+article {
+  max-width: 800px;
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 5px;
+  border: solid 1px #000;
+}
+
+section {
+  margin-bottom: 3em;
+}

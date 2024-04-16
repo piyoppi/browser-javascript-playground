@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CustomElements Button</title>
+  </head>
+  <body>
+    <script type="module" src="./main.js"></script>
+
+    <article>
+      <section>
+        <h2>Shadow DOMを利用しない場合</h2>
+        <p>Enterキーを押下すると送信される</p>
+        <form id="text-with-light-button-form" action="/post" method="post">
+          <input type="text" name="foo" />
+          <input type="text" name="bar" />
+          <my-button-with-light>Submit</my-button-with-light>
+        </form>
+
+        <textarea readonly placeholder="ここに結果を表示" id="log-text-with-light-button-form" class="log-area"></textarea>
+
+        <script>
+          const form1 = document.getElementById('text-with-light-button-form');
+          form1.addEventListener('submit', e => {
+            document.getElementById('log-text-with-light-button-form').value += (new Date()).toTimeString() + ' Form submitted\n';
+            e.preventDefault();
+          });
+        </script>
+      </section>
+
+      <section>
+        <h2>Shadow DOMを利用する場合</h2>
+        <p>Enterキーを押下しても送信されない</p>
+        <form id="text-with-button-form" action="/post" method="post">
+          <input type="text" name="foo" />
+          <input type="text" name="bar" />
+          <my-button-with-shadow>Submit</my-button-with-shadow>
+        </form>
+
+        <textarea readonly placeholder="ここに結果を表示" id="log-text-with-button-form" class="log-area"></textarea>
+
+        <script>
+          const form2 = document.getElementById('text-with-button-form');
+          form2.addEventListener('submit', e => {
+            document.getElementById('log-text-with-button-form').value += (new Date()).toTimeString() + ' Form submitted\n';
+            e.preventDefault();
+          });
+        </script>
+      </section>
+
+      <section>
+        <h2>Shadow DOMを利用する場合 + テキストボックスが1つ</h2>
+        <p>Enterキーを押下すると送信される</p>
+        <form id="a-text-with-button-form" action="/post" method="post">
+          <input type="text" name="foo" />
+          <my-button-with-shadow>Submit</my-button-with-shadow>
+        </form>
+
+        <textarea readonly placeholder="ここに結果を表示" id="log-a-text-with-button-form" class="log-area"></textarea>
+
+        <script>
+          const form3 = document.getElementById('a-text-with-button-form');
+          form3.addEventListener('submit', e => {
+            document.getElementById('log-a-text-with-button-form').value += (new Date()).toTimeString() + ' Form submitted\n';
+            e.preventDefault();
+          });
+        </script>
+      </section>
+
+      <section>
+        <h2>Shadow DOMを利用する場合 + Enterキーのハンドリング</h2>
+        <p>Enterキーを押下すると送信されるが、テキストボックスが一つの場合は2回Submitイベントが発火する</p>
+        <form id="text-with-enter-handled-button-form" action="/post" method="post">
+          <input type="text" name="foo" />
+          <my-button-with-shadow-handle-enter>Submit</my-button-with-shadow-handle-enter>
+        </form>
+
+        <textarea readonly placeholder="ここに結果を表示" id="log-text-with-enter-handled-button-form" class="log-area"></textarea>
+
+        <script>
+          const form4 = document.getElementById('text-with-enter-handled-button-form');
+          form4.addEventListener('submit', e => {
+            document.getElementById('log-text-with-enter-handled-button-form').value += (new Date()).toTimeString() + ' Form submitted\n';
+            e.preventDefault();
+          });
+        </script>
+
+      </section>
+    </article>
+  </body>
+</html>
